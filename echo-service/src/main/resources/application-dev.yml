@@ -10,3 +10,7 @@ management:
     web:
       exposure:
         include: *
+
+    jmx:
+      exposure:
+        include: *
