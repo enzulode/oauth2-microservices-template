@@ -8,5 +8,5 @@ RUN gradle build --no-daemon
 FROM openjdk:17-jdk-slim
 WORKDIR /app
 ENV SPRING_PROFILES_ACTIVE=dev
-COPY --from=builder /source/build/libs/echo-service-1.0.0-SNAPSHOT.jar app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY --from=builder /source/build/libs/echo-service-1.0.0-SNAPSHOT.jar app-dev.jar
+ENTRYPOINT ["java", "-jar", "app-dev.jar"]
