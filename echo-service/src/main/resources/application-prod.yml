@@ -4,3 +4,12 @@ server:
 spring:
   application:
     name: echo-service-prod
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: *
+    jmx:
+      exposure:
+        exclude: *
