@@ -4,3 +4,9 @@ server:
 spring:
   application:
     name: echo-service-dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: *
