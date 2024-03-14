@@ -9,8 +9,8 @@ management:
   endpoints:
     web:
       exposure:
-        include: *
+        include: '*'
 
     jmx:
       exposure:
-        include: *
+        include: '*'
