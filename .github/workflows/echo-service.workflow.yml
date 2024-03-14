@@ -9,6 +9,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
+  IMAGE_NAME_BASE: ${{ github.repository }}
   IMAGE_NAME: echo-service
 
 jobs:
@@ -34,7 +35,7 @@ jobs:
         id: metadata-fetch
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-dev
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_BASE }}/${{ env.IMAGE_NAME }}-dev
           tags: |
             type=raw,value=latest
             type=sha
@@ -70,7 +71,7 @@ jobs:
         id: metadata-fetch
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-prod
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_BASE }}/${{ env.IMAGE_NAME }}-prod
           tags: |
             type=raw,value=latest
             type=sha
