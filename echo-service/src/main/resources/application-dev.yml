@@ -1,0 +1,16 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: echo-service-dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+    jmx:
+      exposure:
+        include: '*'
