@@ -36,7 +36,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-dev
           tags: |
-            raw=latest
+            type=raw,value=latest
             type=sha
 
       - name: Build and publish development Docker image
@@ -71,7 +71,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-prod
           tags: |
-            raw=latest
+            type=raw,value=latest
             type=sha
 
       - name: Build and publish production Docker image
