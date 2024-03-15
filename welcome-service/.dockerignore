@@ -1,0 +1,8 @@
+# Docker ignores IDEA configurations
+.idea
+
+# Docker ignores Gradle cached data
+.gradle
+
+# Docker ignores previous builds data
+build

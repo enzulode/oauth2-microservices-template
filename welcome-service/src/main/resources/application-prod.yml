@@ -1,0 +1,15 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: welcome-service-prod
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: '*'
+    jmx:
+      exposure:
+        exclude: '*'
