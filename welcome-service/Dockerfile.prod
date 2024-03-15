@@ -1,0 +1,12 @@
+# Build stage
+FROM gradle:8.4-jdk17-alpine as builder
+WORKDIR /source
+COPY --chown=gradle:gradle . ./
+RUN gradle build --no-daemon
+
+# Run stage
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+ENV SPRING_PROFILES_ACTIVE=prod
+COPY --from=builder /source/build/libs/welcome-service-1.0.0-SNAPSHOT.jar app-prod.jar
+ENTRYPOINT ["java", "-jar", "app-prod.jar"]
