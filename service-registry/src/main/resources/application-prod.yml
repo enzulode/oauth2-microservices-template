@@ -1,0 +1,15 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: service-registry-prod
+
+eureka:
+  instance: # Eureka general configurations
+    prefer-ip-address: true
+  client: # Eureka client configurations
+    register-with-eureka: false
+    fetch-registry: false
+  server: # Eureka server configurations
+    wait-time-in-ms-when-sync-empty: 0

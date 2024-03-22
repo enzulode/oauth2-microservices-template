@@ -1,0 +1,14 @@
+# Build stage
+FROM gradle:8.4-jdk17-alpine as builder
+WORKDIR /source
+COPY --chown=gradle:gradle . ./
+RUN gradle build --no-daemon
+
+# Run stage
+FROM bellsoft/liberica-runtime-container:jre-17-slim-stream-glibc as runner
+WORKDIR /app
+ENV SPRING_PROFILES_ACTIVE=dev
+COPY --from=builder /source/build/libs/service-registry-1.0.0-SNAPSHOT.jar service-registry-dev.jar
+ENTRYPOINT ["java", "-Xmx200M", "-jar", "/app/service-registry-dev.jar"]
+
+EXPOSE 8761
